@@ -11,10 +11,33 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
+```{r setup, include = FALSE,message=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+```
+
+```{r}
+library(httr)
+library(jsonlite)
+library(dplyr)
+```
+
+```{r}
+get_franchise<-GET("https://records.nhl.com/site/api/franchise")
+txt_franchise<-content(get_franchise, "text")
+json_franchise<-fromJSON(txt_franchise,flatten = TRUE)
+franchise<-json_franchise$data%>%select("id","firstSeasonId","lastSeasonId","teamCommonName")
+franchise
+
+get_franchisett<-GET("https://records.nhl.com/site/api/franchise-team-totals")
+txt_franchisett<-content(get_franchisett, "text")
+json_franchisett<-fromJSON(txt_franchisett,flatten = TRUE)
+franchise_team_total<-json_franchisett$data%>%select("homeTies","homeWins","roadTies","roadWins","shootoutLosses","shootoutWins","shutouts",
+  "teamId","teamName","ties","wins")
+franchise_team_total
+
+
 ```
 
