@@ -1,0 +1,20 @@
+---
+title: "Project 1"
+author: "Yumin Wu"
+date: "`r Sys.Date()`"
+output: 
+     rmarkdown::html_vignette:
+                     toc: true
+vignette: >
+  %\VignetteIndexEntry{Project 1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
