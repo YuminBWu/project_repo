@@ -31,12 +31,46 @@ json_franchise<-fromJSON(txt_franchise,flatten = TRUE)
 franchise<-json_franchise$data%>%select("id","firstSeasonId","lastSeasonId","teamCommonName")
 franchise
 
+
+
+
 get_franchisett<-GET("https://records.nhl.com/site/api/franchise-team-totals")
 txt_franchisett<-content(get_franchisett, "text")
 json_franchisett<-fromJSON(txt_franchisett,flatten = TRUE)
-franchise_team_total<-json_franchisett$data%>%select("homeTies","homeWins","roadTies","roadWins","shootoutLosses","shootoutWins","shutouts",
-  "teamId","teamName","ties","wins")
+franchise_team_total<-json_franchisett$data%>%select("franchiseId","homeTies","homeWins","roadTies","roadWins","shootoutLosses",
+  "shootoutWins","shutouts","teamId","teamName","ties","wins")
 franchise_team_total
+
+
+
+
+get_sr<-GET("https://records.nhl.com/site/api/franchise-season-records?cayenneExp=franchiseId=23")
+txt_sr<-content(get_sr, "text")
+json_sr<-fromJSON(txt_sr, flatten = TRUE)
+json_sr
+
+
+
+get_goalie<-GET("https://records.nhl.com/site/api/franchise-goalie-records?cayenneExp=franchiseId=23")
+txt_goalie<-content(get_goalie, "text")
+json_goalie<-fromJSON(txt_goalie, flatten = TRUE)
+json_goalie
+
+
+
+
+get_skater<-GET("https://records.nhl.com/site/api/franchise-skater-records?cayenneExp=franchiseId=23")
+txt_skater<-content(get_skater, "text")
+json_skater<-fromJSON(txt_skater, flatten = TRUE)
+json_skater
+
+
+
+get_teams<-GET("https://statsapi.web.nhl.com/api/v1/teams")
+txt_teams<-content(get_teams, "text")
+json_teams<-fromJSON(txt_teams, flatten = TRUE)
+json_teams
+
 
 
 
