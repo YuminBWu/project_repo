@@ -67,24 +67,18 @@ get_franchisett<-function(franchiseId =NULL,teamName =NULL)
 
 
 ```{r}
-get_sr<-function(franchiseId=NULL){
+get_sr<-function(franchiseId=NULL,franchiseName=NULL)
+{
   
-  if(is.null(franchiseId))
-  {
-    get_sr<-GET(paste0("https://records.nhl.com/site/api/franchise-season-records"))
-    
-  }else{
-    get_sr<-GET(paste0("https://records.nhl.com/site/api/franchise-season-records?cayenneExp=franchiseId=",franchiseId))
-  }
+  get_sr<-GET(paste0("https://records.nhl.com/site/api/franchise-season-records"))
   txt_sr<-content(get_sr, "text")
   json_sr<-fromJSON(txt_sr, flatten = TRUE)
-
-   if(is.null(franchiseId))
+  
+   if(is.null(franchiseId)&(is.null(franchiseName)))
   {
-    return(json_sr)
-     
+   return(json_sr)
   }else{
-      return(json_sr$data[which(json_sr$data$franchiseId %in% franchiseId),] )
+   return(json_sr$data[which((json_sr$data$franchiseId %in% franchiseId)|(json_sr$data$franchiseName %in% franchiseName)),] )
   }
 
 }
@@ -92,24 +86,17 @@ get_sr<-function(franchiseId=NULL){
 
 
 ```{r}
-get_goalie<-function(franchiseId=NULL){
-
-if(is.null(franchiseId))
+get_goalie<-function(franchiseId=NULL,franchiseName=NULL)
   {
-    get_goalie<-GET(paste0("https://records.nhl.com/site/api/franchise-goalie-records"))
-    
-  }else{
-    get_goalie<-GET(paste0("https://records.nhl.com/site/api/franchise-goalie-records?cayenneExp=franchiseId=",franchiseId))
-  }
+  get_goalie<-GET(paste0("https://records.nhl.com/site/api/franchise-goalie-records"))
   txt_goalie<-content(get_goalie, "text")
   json_goalie<-fromJSON(txt_goalie, flatten = TRUE)
-
-   if(is.null(franchiseId))
+  
+   if(is.null(franchiseId)&(is.null(franchiseName)))
   {
-    return(json_goalie)
-     
+   return(json_goalie)
   }else{
-      return(json_goalie$data[which(json_goalie$data$franchiseId %in% franchiseId),] )
+   return(json_goalie$data[which((json_goalie$data$franchiseId %in% franchiseId)|(json_goalie$data$franchiseName %in% franchiseName)),] )
   }
 
 }
@@ -117,43 +104,39 @@ if(is.null(franchiseId))
 
 
 ```{r}
-get_skater<-function(franchiseId=NULL){
-
- if(is.null(franchiseId))
+get_skater<-function(franchiseId=NULL,franchiseName=NULL)
   {
-    get_skater<-GET(paste0("https://records.nhl.com/site/api/franchise-skater-records"))
-    
-  }else{
-    get_skater<-GET(paste0("https://records.nhl.com/site/api/franchise-skater-records?cayenneExp=franchiseId=",franchiseId))
-  }
+  get_skater<-GET(paste0("https://records.nhl.com/site/api/franchise-skater-records"))
   txt_skater<-content(get_skater, "text")
   json_skater<-fromJSON(txt_skater, flatten = TRUE)
 
-   if(is.null(franchiseId))
-  {
-    return(json_skater)
-     
-  }else{
-      return(json_skater$data[which(json_skater$data$franchiseId %in% franchiseId),] )
-  }
 
-}
+ if(is.null(franchiseId)&(is.null(franchiseName)))
+  {
+    return(json_skater) 
+    
+  }else{
+     return(json_skater$data[which((json_skater$data$franchiseId %in% franchiseId)|(json_skater$data$franchiseName %in% franchiseName)),] )
+   
+  }
+  
+  }
 ```
 
 
 ```{r}
-get_teams <- function(id=NULL,name=NULL)
+get_teams <- function(franchiseId=NULL,name=NULL)
 {
   get_teams<-GET("https://statsapi.web.nhl.com/api/v1/teams")
   txt_teams<-content(get_teams, "text")
   json_teams<-fromJSON(txt_teams, flatten = TRUE)
 
 
- if(is.null(id)&(is.null(name)))
+ if(is.null(franchiseId)&(is.null(name)))
   {
     return(json_teams)
   }else{
-      return(json_teams$teams[which((json_teams$teams$id %in% id)|(json_teams$teams$name %in% name)),])
+      return(json_teams$teams[which((json_teams$teams$franchiseId %in% franchiseId)|(json_teams$teams$name %in% name)),])
   }
 
 }
