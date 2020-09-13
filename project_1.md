@@ -1,36 +1,42 @@
----
-title: "Project 1"
-author: "Yumin Wu"
-date: "`r Sys.Date()`"
-output:
-   github_document:
-          toc: true
-vignette: >
-  %\VignetteIndexEntry{Project 1}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
+Project 1
+================
+Yumin Wu
+2020-09-13
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,message=FALSE,eval=TRUE,wwarning = FALSE,
-  comment = "#>"
-)
-```
+  - [Introduction](#introduction)
+      - [Functions to contact the NHL records API and the NHL stats
+        API.](#functions-to-contact-the-nhl-records-api-and-the-nhl-stats-api.)
+      - [Create a function for users to access any of the API endpoints
+        above.](#create-a-function-for-users-to-access-any-of-the-api-endpoints-above.)
+      - [Data analysis](#data-analysis)
+          - [New Jersey Devils summary of
+            losses](#new-jersey-devils-summary-of-losses)
+          - [New Jersey Devils summary of
+            wins](#new-jersey-devils-summary-of-wins)
+          - [New Jersey Devils summary of
+            ties](#new-jersey-devils-summary-of-ties)
+      - [Visuals](#visuals)
 
-```{r}
+``` r
 library(rmarkdown)
+#> Warning: package 'rmarkdown' was built under R version 3.6.3
 library(httr)
+#> Warning: package 'httr' was built under R version 3.6.3
 library(jsonlite)
+#> Warning: package 'jsonlite' was built under R version 3.6.3
 library(dplyr)
+#> Warning: package 'dplyr' was built under R version 3.6.3
 library(knitr)
+#> Warning: package 'knitr' was built under R version 3.6.3
 ```
 
-# Introduction  
-Read and summarize data from the National Hockey League’s (NHL) API.  
+# Introduction
 
-## Functions to contact the NHL records API and the NHL stats API.  
-```{r}
+Read and summarize data from the National Hockey League’s (NHL) API.
+
+## Functions to contact the NHL records API and the NHL stats API.
+
+``` r
 get_franchise <- function(id=NULL,name=NULL)
 {
   get_franchise<-GET("https://records.nhl.com/site/api/franchise")
@@ -47,8 +53,7 @@ get_franchise <- function(id=NULL,name=NULL)
 }
 ```
 
-
-```{r}
+``` r
 get_franchisett<-function(franchiseId =NULL,teamName =NULL)
 {
   get_franchisett<-GET("https://records.nhl.com/site/api/franchise-team-totals")
@@ -66,8 +71,7 @@ get_franchisett<-function(franchiseId =NULL,teamName =NULL)
 }
 ```
 
-
-```{r}
+``` r
 get_sr<-function(franchiseId=NULL,franchiseName=NULL)
 {
   
@@ -85,8 +89,7 @@ get_sr<-function(franchiseId=NULL,franchiseName=NULL)
 }
 ```
 
-
-```{r}
+``` r
 get_goalie<-function(franchiseId=NULL,franchiseName=NULL)
   {
   get_goalie<-GET(paste0("https://records.nhl.com/site/api/franchise-goalie-records"))
@@ -103,8 +106,7 @@ get_goalie<-function(franchiseId=NULL,franchiseName=NULL)
 }
 ```
 
-
-```{r}
+``` r
 get_skater<-function(franchiseId=NULL,franchiseName=NULL)
   {
   get_skater<-GET(paste0("https://records.nhl.com/site/api/franchise-skater-records"))
@@ -124,8 +126,7 @@ get_skater<-function(franchiseId=NULL,franchiseName=NULL)
   }
 ```
 
-
-```{r}
+``` r
 get_teams <- function(franchiseId=NULL,name=NULL)
 {
   get_teams<-GET("https://statsapi.web.nhl.com/api/v1/teams")
@@ -143,21 +144,19 @@ get_teams <- function(franchiseId=NULL,name=NULL)
 }
 ```
 
+## Create a function for users to access any of the API endpoints above.
 
-## Create a function for users to access any of the API endpoints above.  
-```{r}
+``` r
 #nhl<-function(full_url){
 #get<-GET(full_url)
 #txt_resp<-content(get, "text")
 #json_resp<-fromJSON(txt_resp, flatten = TRUE)
 #json_resp
-
-
 ```
 
+## Data analysis
 
-## Data analysis  
-```{r}
+``` r
 get_franchisett<-GET("https://records.nhl.com/site/api/franchise-team-totals")
   txt_franchisett<-content(get_franchisett, "text")
  json_franchisett<-fromJSON(txt_franchisett,flatten = TRUE)
@@ -176,26 +175,57 @@ df = data.frame(analysis$fullname, analysis$rookieWins )
 df<-df%>%rename(playerFullname=analysis.fullname,rookieWins=analysis.rookieWins)
 conTable<-table(df) 
 print(conTable) 
-
+#>                      rookieWins
+#> playerFullname        4 6 22 27
+#>   Al Smith            0 0  0  0
+#>   Bill McKenzie       0 0  0  0
+#>   Bill Oleschuk       0 5  0  0
+#>   Bob Sauve           0 0  0  0
+#>   Cory Schneider      0 0  0  0
+#>   Denis Herron        5 0  0  0
+#>   Doug Favell         0 0  0  0
+#>   Eddie Lack          0 0  0  0
+#>   Glenn Resch         0 0  0  0
+#>   Jeff Reese          0 0  0  0
+#>   Johan Hedberg       0 0  0  0
+#>   John Vanbiesbrouck  0 0  0  0
+#>   Kevin Weekes        0 0  0  0
+#>   Lindsay Middlebrook 0 0  0  0
+#>   Louis Domingue      0 0  0  0
+#>   Mackenzie Blackwood 0 0  5  0
+#>   Martin Brodeur      0 0  0  5
+#>   Michel Plasse       0 0  0  0
+#>   Mike McKenna        0 0  0  0
+#>   Peter McDuffe       0 0  0  0
+#>   Peter Sidorkiewicz  0 0  0  0
+#>   Phil Myre           0 0  0  0
+#>   Richard Shulmistra  0 0  0  0
+#>   Roland Melanson     0 0  0  0
+#>   Ron Low             0 0  0  0
+#>   Sean Burke          0 0  5  0
+#>   Yann Danis          0 0  0  0
 ```
 
+### New Jersey Devils summary of losses
 
-
-### New Jersey Devils summary of losses   
-```{r}
+``` r
 franchiseId<-as.factor(analysis$franchiseName)
 sl<-analysis %>% 
   group_by(franchiseName) %>% 
   summarize(min=min(losses),q1 = quantile(losses, 0.25),mean = mean(losses),med=median(losses),q3 = quantile(losses, 0.75),max=max(losses)
             )
 kable(sl,caption = ' New Jersey Devils summary of losses')
-
 ```
 
+| franchiseName     | min | q1 | mean | med | q3 | max |
+| :---------------- | --: | -: | ---: | --: | -: | --: |
+| New Jersey Devils |   0 |  3 |   36 |  16 | 35 | 394 |
 
+New Jersey Devils summary of losses
 
-### New Jersey Devils summary of wins   
-```{r}
+### New Jersey Devils summary of wins
+
+``` r
 sw<-analysis %>% 
   group_by(franchiseName) %>% 
   summarize(min=min(wins.x),q1 = quantile(wins.x, 0.25),mean = mean(wins.x),med=median(wins.x),q3 = quantile(wins.x, 0.75),max=max(wins.x)
@@ -203,48 +233,61 @@ sw<-analysis %>%
 kable(sw,caption = 'New Jersey Devils summary of wins')
 ```
 
+| franchiseName     | min | q1 |     mean | med | q3 | max |
+| :---------------- | --: | -: | -------: | --: | -: | --: |
+| New Jersey Devils |   0 |  0 | 39.51852 |   6 | 18 | 688 |
 
+New Jersey Devils summary of wins
 
-### New Jersey Devils summary of ties   
-```{r}
+### New Jersey Devils summary of ties
+
+``` r
 
 st<-analysis %>% 
   group_by(franchiseName) %>% 
   summarize(min=min(ties.x),q1 = quantile(ties.x, 0.25,na.rm=TRUE),mean = mean(ties.x,na.rm=TRUE),med=median(ties.x,na.rm=TRUE),q3 = quantile(ties.x, 0.75,na.rm=TRUE),max=max(ties.x,na.rm=TRUE)
             )
 kable(st,caption = 'New Jersey Devils summary of ties')
-
-
 ```
 
-## Visuals  
+| franchiseName     | min | q1 |     mean | med | q3 | max |
+| :---------------- | --: | -: | -------: | --: | -: | --: |
+| New Jersey Devils |  NA |  0 | 8.782609 |   1 |  9 | 105 |
 
-```{r}
+New Jersey Devils summary of ties
+
+## Visuals
+
+``` r
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 3.6.3
 g <- ggplot(analysis, aes(x = teamName, y =wins.x))
 g <- g + geom_boxplot(stat = "boxplot", position = "dodge")+geom_jitter(aes(colour = teamName))+coord_cartesian(ylim = c(0,100))+labs(title="Boxplot for wins")
 g
 ```
 
+![](project_1_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
-```{r}
+``` r
 g <- ggplot(analysis, aes(x = losses))
 g <- g + geom_histogram(aes(y = ..density..),bins=20)+ geom_density(adjust = 0.4,size=3,color="red",outline.type = "full")+ labs(y = "Density")+labs(title="Histogram for losses")+ scale_x_continuous(breaks = seq(0, 400, 150))
 g
 ```
 
+![](project_1_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
-
-```{r}
+``` r
 g <- ggplot(analysis, aes(x=wins.x, y=losses))
 g <- g + geom_point(aes(color = teamName))+labs(title="wins vs losses")+geom_smooth(aes(group = teamName),method = lm,col="green")+scale_x_continuous(name = "wins", limits = c(0, 700)) + theme_classic()
 g
 ```
 
-```{r}
+![](project_1_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+
+``` r
 g <- ggplot(data = analysis, aes(x = teamName,fill=teamName))
 g <- g + geom_bar()+labs(x='Team Name',y='No. of wins') +scale_fill_discrete(name='Team name')
 g
 ```
 
-
+![](project_1_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->

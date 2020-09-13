@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="project-1">Project 1</h1>
+<p>Yumin Wu 2020-09-13</p>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#functions-to-contact-the-nhl-records-api-and-the-nhl-stats-api.">Functions to contact the NHL records API and the NHL stats API.</a></li>
+<li><a href="#create-a-function-for-users-to-access-any-of-the-api-endpoints-above.">Create a function for users to access any of the API endpoints above.</a></li>
+<li><a href="#data-analysis">Data analysis</a>
+<ul>
+<li><a href="#new-jersey-devils-summary-of-losses">New Jersey Devils summary of losses</a></li>
+<li><a href="#new-jersey-devils-summary-of-wins">New Jersey Devils summary of wins</a></li>
+<li><a href="#new-jersey-devils-summary-of-ties">New Jersey Devils summary of ties</a></li>
+</ul></li>
+<li><a href="#visuals">Visuals</a></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(rmarkdown)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(httr)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">#&gt; Warning: package &#39;httr&#39; was built under R version 3.6.3</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">library</span>(jsonlite)</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt; Warning: package &#39;jsonlite&#39; was built under R version 3.6.3</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; Warning: package &#39;dplyr&#39; was built under R version 3.6.3</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">library</span>(knitr)</a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt; Warning: package &#39;knitr&#39; was built under R version 3.6.3</span></a></code></pre></div>
+<h1 id="introduction">Introduction</h1>
+<p>Read and summarize data from the National Hockey League’s (NHL) API.</p>
+<h2 id="functions-to-contact-the-nhl-records-api-and-the-nhl-stats-api">Functions to contact the NHL records API and the NHL stats API.</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">get_franchise &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">id=</span><span class="ot">NULL</span>,<span class="dt">name=</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2">{</a>
+<a class="sourceLine" id="cb2-3" title="3">  get_franchise&lt;-<span class="kw">GET</span>(<span class="st">&quot;https://records.nhl.com/site/api/franchise&quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4">  txt_franchise&lt;-<span class="kw">content</span>(get_franchise, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5">  json_franchise&lt;-<span class="kw">fromJSON</span>(txt_franchise,<span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb2-6" title="6">  franchise&lt;-json_franchise<span class="op">$</span>data<span class="op">%&gt;%</span><span class="kw">select</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;firstSeasonId&quot;</span>,<span class="st">&quot;lastSeasonId&quot;</span>,<span class="st">&quot;teamCommonName&quot;</span>)</a>
+<a class="sourceLine" id="cb2-7" title="7">  </a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="cf">if</span>(<span class="kw">is.null</span>(id)<span class="op">&amp;</span>(<span class="kw">is.null</span>(name)))</a>
+<a class="sourceLine" id="cb2-9" title="9">  {</a>
+<a class="sourceLine" id="cb2-10" title="10">    <span class="kw">return</span>(franchise)</a>
+<a class="sourceLine" id="cb2-11" title="11">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb2-12" title="12">      <span class="kw">return</span>(franchise[<span class="kw">which</span>((franchise<span class="op">$</span>id <span class="op">%in%</span><span class="st"> </span>id)<span class="op">|</span>(franchise<span class="op">$</span>teamCommonName <span class="op">%in%</span><span class="st"> </span>name)),])</a>
+<a class="sourceLine" id="cb2-13" title="13">  }</a>
+<a class="sourceLine" id="cb2-14" title="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">get_franchisett&lt;-<span class="cf">function</span>(<span class="dt">franchiseId =</span><span class="ot">NULL</span>,<span class="dt">teamName =</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2">{</a>
+<a class="sourceLine" id="cb3-3" title="3">  get_franchisett&lt;-<span class="kw">GET</span>(<span class="st">&quot;https://records.nhl.com/site/api/franchise-team-totals&quot;</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4">  txt_franchisett&lt;-<span class="kw">content</span>(get_franchisett, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb3-5" title="5"> json_franchisett&lt;-<span class="kw">fromJSON</span>(txt_franchisett,<span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-6" title="6">  franchise_team_total&lt;-json_franchisett<span class="op">$</span>data<span class="op">%&gt;%</span><span class="kw">select</span>(<span class="st">&quot;franchiseId&quot;</span>,<span class="st">&quot;homeTies&quot;</span>,<span class="st">&quot;homeWins&quot;</span>,<span class="st">&quot;roadTies&quot;</span>,<span class="st">&quot;roadWins&quot;</span>,<span class="st">&quot;shootoutLosses&quot;</span>,</a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="st">&quot;shootoutWins&quot;</span>,<span class="st">&quot;shutouts&quot;</span>,<span class="st">&quot;teamId&quot;</span>,<span class="st">&quot;teamName&quot;</span>,<span class="st">&quot;ties&quot;</span>,<span class="st">&quot;wins&quot;</span>)</a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">   <span class="cf">if</span>(<span class="kw">is.null</span>(franchiseId)<span class="op">&amp;</span>(<span class="kw">is.null</span>(teamName)))</a>
+<a class="sourceLine" id="cb3-10" title="10">  {</a>
+<a class="sourceLine" id="cb3-11" title="11">    <span class="kw">return</span>(franchise_team_total)</a>
+<a class="sourceLine" id="cb3-12" title="12">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb3-13" title="13">      <span class="kw">return</span>(franchise_team_total[<span class="kw">which</span>((franchise_team_total<span class="op">$</span>franchiseId <span class="op">%in%</span><span class="st"> </span>franchiseId)<span class="op">|</span>(franchise_team_total<span class="op">$</span>teamName <span class="op">%in%</span><span class="st"> </span>teamName)),])</a>
+<a class="sourceLine" id="cb3-14" title="14">  }</a>
+<a class="sourceLine" id="cb3-15" title="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">get_sr&lt;-<span class="cf">function</span>(<span class="dt">franchiseId=</span><span class="ot">NULL</span>,<span class="dt">franchiseName=</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2">{</a>
+<a class="sourceLine" id="cb4-3" title="3">  </a>
+<a class="sourceLine" id="cb4-4" title="4">  get_sr&lt;-<span class="kw">GET</span>(<span class="kw">paste0</span>(<span class="st">&quot;https://records.nhl.com/site/api/franchise-season-records&quot;</span>))</a>
+<a class="sourceLine" id="cb4-5" title="5">  txt_sr&lt;-<span class="kw">content</span>(get_sr, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb4-6" title="6">  json_sr&lt;-<span class="kw">fromJSON</span>(txt_sr, <span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-7" title="7">  </a>
+<a class="sourceLine" id="cb4-8" title="8">   <span class="cf">if</span>(<span class="kw">is.null</span>(franchiseId)<span class="op">&amp;</span>(<span class="kw">is.null</span>(franchiseName)))</a>
+<a class="sourceLine" id="cb4-9" title="9">  {</a>
+<a class="sourceLine" id="cb4-10" title="10">   <span class="kw">return</span>(json_sr)</a>
+<a class="sourceLine" id="cb4-11" title="11">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb4-12" title="12">   <span class="kw">return</span>(json_sr<span class="op">$</span>data[<span class="kw">which</span>((json_sr<span class="op">$</span>data<span class="op">$</span>franchiseId <span class="op">%in%</span><span class="st"> </span>franchiseId)<span class="op">|</span>(json_sr<span class="op">$</span>data<span class="op">$</span>franchiseName <span class="op">%in%</span><span class="st"> </span>franchiseName)),] )</a>
+<a class="sourceLine" id="cb4-13" title="13">  }</a>
+<a class="sourceLine" id="cb4-14" title="14"></a>
+<a class="sourceLine" id="cb4-15" title="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">get_goalie&lt;-<span class="cf">function</span>(<span class="dt">franchiseId=</span><span class="ot">NULL</span>,<span class="dt">franchiseName=</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb5-2" title="2">  {</a>
+<a class="sourceLine" id="cb5-3" title="3">  get_goalie&lt;-<span class="kw">GET</span>(<span class="kw">paste0</span>(<span class="st">&quot;https://records.nhl.com/site/api/franchise-goalie-records&quot;</span>))</a>
+<a class="sourceLine" id="cb5-4" title="4">  txt_goalie&lt;-<span class="kw">content</span>(get_goalie, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" title="5">  json_goalie&lt;-<span class="kw">fromJSON</span>(txt_goalie, <span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb5-6" title="6">  </a>
+<a class="sourceLine" id="cb5-7" title="7">   <span class="cf">if</span>(<span class="kw">is.null</span>(franchiseId)<span class="op">&amp;</span>(<span class="kw">is.null</span>(franchiseName)))</a>
+<a class="sourceLine" id="cb5-8" title="8">  {</a>
+<a class="sourceLine" id="cb5-9" title="9">   <span class="kw">return</span>(json_goalie)</a>
+<a class="sourceLine" id="cb5-10" title="10">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb5-11" title="11">   <span class="kw">return</span>(json_goalie<span class="op">$</span>data[<span class="kw">which</span>((json_goalie<span class="op">$</span>data<span class="op">$</span>franchiseId <span class="op">%in%</span><span class="st"> </span>franchiseId)<span class="op">|</span>(json_goalie<span class="op">$</span>data<span class="op">$</span>franchiseName <span class="op">%in%</span><span class="st"> </span>franchiseName)),] )</a>
+<a class="sourceLine" id="cb5-12" title="12">  }</a>
+<a class="sourceLine" id="cb5-13" title="13"></a>
+<a class="sourceLine" id="cb5-14" title="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">get_skater&lt;-<span class="cf">function</span>(<span class="dt">franchiseId=</span><span class="ot">NULL</span>,<span class="dt">franchiseName=</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2">  {</a>
+<a class="sourceLine" id="cb6-3" title="3">  get_skater&lt;-<span class="kw">GET</span>(<span class="kw">paste0</span>(<span class="st">&quot;https://records.nhl.com/site/api/franchise-skater-records&quot;</span>))</a>
+<a class="sourceLine" id="cb6-4" title="4">  txt_skater&lt;-<span class="kw">content</span>(get_skater, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb6-5" title="5">  json_skater&lt;-<span class="kw">fromJSON</span>(txt_skater, <span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8"> <span class="cf">if</span>(<span class="kw">is.null</span>(franchiseId)<span class="op">&amp;</span>(<span class="kw">is.null</span>(franchiseName)))</a>
+<a class="sourceLine" id="cb6-9" title="9">  {</a>
+<a class="sourceLine" id="cb6-10" title="10">    <span class="kw">return</span>(json_skater) </a>
+<a class="sourceLine" id="cb6-11" title="11">    </a>
+<a class="sourceLine" id="cb6-12" title="12">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb6-13" title="13">     <span class="kw">return</span>(json_skater<span class="op">$</span>data[<span class="kw">which</span>((json_skater<span class="op">$</span>data<span class="op">$</span>franchiseId <span class="op">%in%</span><span class="st"> </span>franchiseId)<span class="op">|</span>(json_skater<span class="op">$</span>data<span class="op">$</span>franchiseName <span class="op">%in%</span><span class="st"> </span>franchiseName)),] )</a>
+<a class="sourceLine" id="cb6-14" title="14">   </a>
+<a class="sourceLine" id="cb6-15" title="15">  }</a>
+<a class="sourceLine" id="cb6-16" title="16">  </a>
+<a class="sourceLine" id="cb6-17" title="17">  }</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">get_teams &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">franchiseId=</span><span class="ot">NULL</span>,<span class="dt">name=</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2">{</a>
+<a class="sourceLine" id="cb7-3" title="3">  get_teams&lt;-<span class="kw">GET</span>(<span class="st">&quot;https://statsapi.web.nhl.com/api/v1/teams&quot;</span>)</a>
+<a class="sourceLine" id="cb7-4" title="4">  txt_teams&lt;-<span class="kw">content</span>(get_teams, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" title="5">  json_teams&lt;-<span class="kw">fromJSON</span>(txt_teams, <span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8"> <span class="cf">if</span>(<span class="kw">is.null</span>(franchiseId)<span class="op">&amp;</span>(<span class="kw">is.null</span>(name)))</a>
+<a class="sourceLine" id="cb7-9" title="9">  {</a>
+<a class="sourceLine" id="cb7-10" title="10">    <span class="kw">return</span>(json_teams)</a>
+<a class="sourceLine" id="cb7-11" title="11">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb7-12" title="12">      <span class="kw">return</span>(json_teams<span class="op">$</span>teams[<span class="kw">which</span>((json_teams<span class="op">$</span>teams<span class="op">$</span>franchiseId <span class="op">%in%</span><span class="st"> </span>franchiseId)<span class="op">|</span>(json_teams<span class="op">$</span>teams<span class="op">$</span>name <span class="op">%in%</span><span class="st"> </span>name)),])</a>
+<a class="sourceLine" id="cb7-13" title="13">  }</a>
+<a class="sourceLine" id="cb7-14" title="14"></a>
+<a class="sourceLine" id="cb7-15" title="15">}</a></code></pre></div>
+<h2 id="create-a-function-for-users-to-access-any-of-the-api-endpoints-above">Create a function for users to access any of the API endpoints above.</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co">#nhl&lt;-function(full_url){</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co">#get&lt;-GET(full_url)</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">#txt_resp&lt;-content(get, &quot;text&quot;)</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">#json_resp&lt;-fromJSON(txt_resp, flatten = TRUE)</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">#json_resp</span></a></code></pre></div>
+<h2 id="data-analysis">Data analysis</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">get_franchisett&lt;-<span class="kw">GET</span>(<span class="st">&quot;https://records.nhl.com/site/api/franchise-team-totals&quot;</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2">  txt_franchisett&lt;-<span class="kw">content</span>(get_franchisett, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb9-3" title="3"> json_franchisett&lt;-<span class="kw">fromJSON</span>(txt_franchisett,<span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-4" title="4">  franchise_team_total&lt;-json_franchisett<span class="op">$</span>data<span class="op">%&gt;%</span><span class="kw">select</span>(<span class="st">&quot;franchiseId&quot;</span>,<span class="st">&quot;homeTies&quot;</span>,<span class="st">&quot;homeWins&quot;</span>,<span class="st">&quot;roadTies&quot;</span>,<span class="st">&quot;roadWins&quot;</span>,<span class="st">&quot;shootoutLosses&quot;</span>,</a>
+<a class="sourceLine" id="cb9-5" title="5">  <span class="st">&quot;shootoutWins&quot;</span>,<span class="st">&quot;shutouts&quot;</span>,<span class="st">&quot;teamId&quot;</span>,<span class="st">&quot;teamName&quot;</span>,<span class="st">&quot;ties&quot;</span>,<span class="st">&quot;wins&quot;</span>)</a>
+<a class="sourceLine" id="cb9-6" title="6"></a>
+<a class="sourceLine" id="cb9-7" title="7">get_goalie23&lt;-<span class="kw">GET</span>(<span class="st">&quot;https://records.nhl.com/site/api/franchise-goalie-records?cayenneExp=franchiseId=23&quot;</span>)</a>
+<a class="sourceLine" id="cb9-8" title="8">txt_goalie23&lt;-<span class="kw">content</span>(get_goalie23, <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb9-9" title="9">json_goalie23&lt;-<span class="kw">fromJSON</span>(txt_goalie23, <span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-10" title="10">json_goalie23 &lt;-<span class="st"> </span>json_goalie23<span class="op">$</span>data</a>
+<a class="sourceLine" id="cb9-11" title="11"></a>
+<a class="sourceLine" id="cb9-12" title="12">analysis &lt;-<span class="st"> </span><span class="kw">inner_join</span>(json_goalie23, franchise_team_total,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;franchiseId&quot;</span> =<span class="st"> &quot;franchiseId&quot;</span>))</a>
+<a class="sourceLine" id="cb9-13" title="13">analysis<span class="op">$</span>fullname =<span class="st"> </span><span class="kw">paste</span>(analysis<span class="op">$</span>firstName,analysis<span class="op">$</span>lastName,<span class="dt">sep=</span><span class="st">&#39; &#39;</span>)</a>
+<a class="sourceLine" id="cb9-14" title="14">analysis<span class="op">$</span>total_n =<span class="st"> </span>analysis<span class="op">$</span>ties.x<span class="op">+</span>analysis<span class="op">$</span>wins.x<span class="op">+</span>analysis<span class="op">$</span>losses</a>
+<a class="sourceLine" id="cb9-15" title="15">df =<span class="st"> </span><span class="kw">data.frame</span>(analysis<span class="op">$</span>fullname, analysis<span class="op">$</span>rookieWins ) </a>
+<a class="sourceLine" id="cb9-16" title="16">df&lt;-df<span class="op">%&gt;%</span><span class="kw">rename</span>(<span class="dt">playerFullname=</span>analysis.fullname,<span class="dt">rookieWins=</span>analysis.rookieWins)</a>
+<a class="sourceLine" id="cb9-17" title="17">conTable&lt;-<span class="kw">table</span>(df) </a>
+<a class="sourceLine" id="cb9-18" title="18"><span class="kw">print</span>(conTable) </a>
+<a class="sourceLine" id="cb9-19" title="19"><span class="co">#&gt;                      rookieWins</span></a>
+<a class="sourceLine" id="cb9-20" title="20"><span class="co">#&gt; playerFullname        4 6 22 27</span></a>
+<a class="sourceLine" id="cb9-21" title="21"><span class="co">#&gt;   Al Smith            0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-22" title="22"><span class="co">#&gt;   Bill McKenzie       0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-23" title="23"><span class="co">#&gt;   Bill Oleschuk       0 5  0  0</span></a>
+<a class="sourceLine" id="cb9-24" title="24"><span class="co">#&gt;   Bob Sauve           0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-25" title="25"><span class="co">#&gt;   Cory Schneider      0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-26" title="26"><span class="co">#&gt;   Denis Herron        5 0  0  0</span></a>
+<a class="sourceLine" id="cb9-27" title="27"><span class="co">#&gt;   Doug Favell         0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-28" title="28"><span class="co">#&gt;   Eddie Lack          0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-29" title="29"><span class="co">#&gt;   Glenn Resch         0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-30" title="30"><span class="co">#&gt;   Jeff Reese          0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-31" title="31"><span class="co">#&gt;   Johan Hedberg       0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-32" title="32"><span class="co">#&gt;   John Vanbiesbrouck  0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-33" title="33"><span class="co">#&gt;   Kevin Weekes        0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-34" title="34"><span class="co">#&gt;   Lindsay Middlebrook 0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-35" title="35"><span class="co">#&gt;   Louis Domingue      0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-36" title="36"><span class="co">#&gt;   Mackenzie Blackwood 0 0  5  0</span></a>
+<a class="sourceLine" id="cb9-37" title="37"><span class="co">#&gt;   Martin Brodeur      0 0  0  5</span></a>
+<a class="sourceLine" id="cb9-38" title="38"><span class="co">#&gt;   Michel Plasse       0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-39" title="39"><span class="co">#&gt;   Mike McKenna        0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-40" title="40"><span class="co">#&gt;   Peter McDuffe       0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-41" title="41"><span class="co">#&gt;   Peter Sidorkiewicz  0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-42" title="42"><span class="co">#&gt;   Phil Myre           0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-43" title="43"><span class="co">#&gt;   Richard Shulmistra  0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-44" title="44"><span class="co">#&gt;   Roland Melanson     0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-45" title="45"><span class="co">#&gt;   Ron Low             0 0  0  0</span></a>
+<a class="sourceLine" id="cb9-46" title="46"><span class="co">#&gt;   Sean Burke          0 0  5  0</span></a>
+<a class="sourceLine" id="cb9-47" title="47"><span class="co">#&gt;   Yann Danis          0 0  0  0</span></a></code></pre></div>
+<h3 id="new-jersey-devils-summary-of-losses">New Jersey Devils summary of losses</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">franchiseId&lt;-<span class="kw">as.factor</span>(analysis<span class="op">$</span>franchiseName)</a>
+<a class="sourceLine" id="cb10-2" title="2">sl&lt;-analysis <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(franchiseName) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">min=</span><span class="kw">min</span>(losses),<span class="dt">q1 =</span> <span class="kw">quantile</span>(losses, <span class="fl">0.25</span>),<span class="dt">mean =</span> <span class="kw">mean</span>(losses),<span class="dt">med=</span><span class="kw">median</span>(losses),<span class="dt">q3 =</span> <span class="kw">quantile</span>(losses, <span class="fl">0.75</span>),<span class="dt">max=</span><span class="kw">max</span>(losses)</a>
+<a class="sourceLine" id="cb10-5" title="5">            )</a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="kw">kable</span>(sl,<span class="dt">caption =</span> <span class="st">&#39; New Jersey Devils summary of losses&#39;</span>)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">franchiseName</th>
+<th align="right">min</th>
+<th align="right">q1</th>
+<th align="right">mean</th>
+<th align="right">med</th>
+<th align="right">q3</th>
+<th align="right">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">New Jersey Devils</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">36</td>
+<td align="right">16</td>
+<td align="right">35</td>
+<td align="right">394</td>
+</tr>
+</tbody>
+</table>
+<p>New Jersey Devils summary of losses</p>
+<h3 id="new-jersey-devils-summary-of-wins">New Jersey Devils summary of wins</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">sw&lt;-analysis <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(franchiseName) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">min=</span><span class="kw">min</span>(wins.x),<span class="dt">q1 =</span> <span class="kw">quantile</span>(wins.x, <span class="fl">0.25</span>),<span class="dt">mean =</span> <span class="kw">mean</span>(wins.x),<span class="dt">med=</span><span class="kw">median</span>(wins.x),<span class="dt">q3 =</span> <span class="kw">quantile</span>(wins.x, <span class="fl">0.75</span>),<span class="dt">max=</span><span class="kw">max</span>(wins.x)</a>
+<a class="sourceLine" id="cb11-4" title="4">            )</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="kw">kable</span>(sw,<span class="dt">caption =</span> <span class="st">&#39;New Jersey Devils summary of wins&#39;</span>)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">franchiseName</th>
+<th align="right">min</th>
+<th align="right">q1</th>
+<th align="right">mean</th>
+<th align="right">med</th>
+<th align="right">q3</th>
+<th align="right">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">New Jersey Devils</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">39.51852</td>
+<td align="right">6</td>
+<td align="right">18</td>
+<td align="right">688</td>
+</tr>
+</tbody>
+</table>
+<p>New Jersey Devils summary of wins</p>
+<h3 id="new-jersey-devils-summary-of-ties">New Jersey Devils summary of ties</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"></a>
+<a class="sourceLine" id="cb12-2" title="2">st&lt;-analysis <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(franchiseName) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">min=</span><span class="kw">min</span>(ties.x),<span class="dt">q1 =</span> <span class="kw">quantile</span>(ties.x, <span class="fl">0.25</span>,<span class="dt">na.rm=</span><span class="ot">TRUE</span>),<span class="dt">mean =</span> <span class="kw">mean</span>(ties.x,<span class="dt">na.rm=</span><span class="ot">TRUE</span>),<span class="dt">med=</span><span class="kw">median</span>(ties.x,<span class="dt">na.rm=</span><span class="ot">TRUE</span>),<span class="dt">q3 =</span> <span class="kw">quantile</span>(ties.x, <span class="fl">0.75</span>,<span class="dt">na.rm=</span><span class="ot">TRUE</span>),<span class="dt">max=</span><span class="kw">max</span>(ties.x,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb12-5" title="5">            )</a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="kw">kable</span>(st,<span class="dt">caption =</span> <span class="st">&#39;New Jersey Devils summary of ties&#39;</span>)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">franchiseName</th>
+<th align="right">min</th>
+<th align="right">q1</th>
+<th align="right">mean</th>
+<th align="right">med</th>
+<th align="right">q3</th>
+<th align="right">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">New Jersey Devils</td>
+<td align="right">NA</td>
+<td align="right">0</td>
+<td align="right">8.782609</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">105</td>
+</tr>
+</tbody>
+</table>
+<p>New Jersey Devils summary of ties</p>
+<h2 id="visuals">Visuals</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="co">#&gt; Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</span></a>
+<a class="sourceLine" id="cb13-3" title="3">g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(analysis, <span class="kw">aes</span>(<span class="dt">x =</span> teamName, <span class="dt">y =</span>wins.x))</a>
+<a class="sourceLine" id="cb13-4" title="4">g &lt;-<span class="st"> </span>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="dt">stat =</span> <span class="st">&quot;boxplot&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)<span class="op">+</span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> teamName))<span class="op">+</span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))<span class="op">+</span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Boxplot for wins&quot;</span>)</a>
+<a class="sourceLine" id="cb13-5" title="5">g</a></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(analysis, <span class="kw">aes</span>(<span class="dt">x =</span> losses))</a>
+<a class="sourceLine" id="cb14-2" title="2">g &lt;-<span class="st"> </span>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">bins=</span><span class="dv">20</span>)<span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="fl">0.4</span>,<span class="dt">size=</span><span class="dv">3</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>,<span class="dt">outline.type =</span> <span class="st">&quot;full&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>)<span class="op">+</span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Histogram for losses&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">400</span>, <span class="dv">150</span>))</a>
+<a class="sourceLine" id="cb14-3" title="3">g</a></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(analysis, <span class="kw">aes</span>(<span class="dt">x=</span>wins.x, <span class="dt">y=</span>losses))</a>
+<a class="sourceLine" id="cb15-2" title="2">g &lt;-<span class="st"> </span>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> teamName))<span class="op">+</span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;wins vs losses&quot;</span>)<span class="op">+</span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">group =</span> teamName),<span class="dt">method =</span> lm,<span class="dt">col=</span><span class="st">&quot;green&quot;</span>)<span class="op">+</span><span class="kw">scale_x_continuous</span>(<span class="dt">name =</span> <span class="st">&quot;wins&quot;</span>, <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">700</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>()</a>
+<a class="sourceLine" id="cb15-3" title="3">g</a></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> analysis, <span class="kw">aes</span>(<span class="dt">x =</span> teamName,<span class="dt">fill=</span>teamName))</a>
+<a class="sourceLine" id="cb16-2" title="2">g &lt;-<span class="st"> </span>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Team Name&#39;</span>,<span class="dt">y=</span><span class="st">&#39;No. of wins&#39;</span>) <span class="op">+</span><span class="kw">scale_fill_discrete</span>(<span class="dt">name=</span><span class="st">&#39;Team name&#39;</span>)</a>
+<a class="sourceLine" id="cb16-3" title="3">g</a></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAABNVBMVEUAAAAAADoAAGYAOmYAOpAAZrYAujgzMzM6AAA6ADo6AGY6OgA6OmY6OpA6ZrY6kJA6kNtNTU1NTW5NTY5Nbo5NbqtNjshhnP9mAABmADpmAGZmOgBmOpBmZgBmZmZmkJBmtv9uTU1uTW5uTY5ubk1ubo5ubqtujshuq6tuq+SOTU2OTW6OTY6Obk2ObquOjk2Ojo6Oq6uOyP+QOgCQOjqQOmaQZgCQkGaQtpCQ27aQ2/+rbk2rbm6rbo6rjk2rq46ryKur5Mir5OSr5P+2ZgC2Zjq2tma225C2/7a2/9u2///Ijk3Ijm7IyI7I5KvI/8jI/+TI///bkDrb25Db/9vb///kq27k5Kvk/+Tk///r6+vy8vL4dm3/tmb/yI7/25D/29v/5Kv//7b//8j//9v//+T///+sbKDaAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAYZ0lEQVR4nO2dC3sbx3VAKVWqaaVKyKhSacdtKClRQll2W1KtbVJtkpJpHCqNSyZkorYkwxf+/0/ovBZYXCxenDvAxeKc75MIzs5ezO49nN1ZYHZXOgCGWZl3AwBGgaBgGgQF0yAomAZBwTQICqaZUtD/KUGZqHek/Y0pI1IpEFTQ/saUEakUCCpof2PKiFQKBBW0vzFlRCoFggra35gyIpUCQQXtb0wZkUqBoIL2N6aMSKVAUEH7G1NGpFIgqKD9jSkjUikQVND+xpQRqRQIKmh/Y8qIVAoEFbS/MWVEKgWCCtrfmDIilQJBBe1vTBmRSoGggvY3poxIpUBQQfsbU0akUiCooP2NKSNSKRBU0P7GlBGpFAgqaH9jyohUCg1B/2++KKdPM9jfzZchW7hQIKhMn2YwBM0GQWX6NIMhaDYIKtOnGQxBs0FQmT7NYAiaDYLK9GkGQ9BsEFSmTzMYgmaDoDJ9msEQNBsElenTDIag2SCoTJ9mMATNBkFl+jSDIWg2CCrTpxkMQbNBUJk+zWAImg2CyvRpBkPQbBBUpk8zGIJmg6AyfZrBEDQbBJXp0wyGoNkgqEyfZjAEzQZBZfo0gyFoNggq06cZDEGzQVCZPs1gCJoNgsr0aQZD0GwQVKZPMxiCZoOgMn2awRA0GwSV6dMMhqDZIKhMn2YwBM0GQWX6NIMhaDYIKtOnGQxBs0FQmT7NYAiazZSCNjJnQRW2oBRzFnTem68BPajsXzSDzVnQIVu4UCCoTJ9mMATNBkFl+jSDIWg2CCrTpxkMQbNBUJk+zWAImg2CyvRpBkPQbBBUpk8zGIJmg6AyfZrBEDQbBJXp0wyGoNkgqEyfZjAEzQZBZfo0gyFoNggq06cZDEGzQVCZPs1gCJoNgsr0aQZD0GwQVKZPMxiCZoOgMn2awRA0GwSV6dMMhqDZIKhMn2YwBM0GQWX6NIMhaDYIKtOnGQxBs0FQmT7NYAiaDYLK9GkGQ9BsEFSmTzMYgmaDoDJ9msEQNBsElenTDIag2SCoTJ9mMATNBkFl+jSDIWg2CCrTpxkMQbNBUJk+zWAImg2CyvRpBkPQbBBUpk8zGIJmg6AyfZrBEDQbBJXp0wyGoNkgqEyfZjAEzQZBZfo0gyFoNggq06cZDEGzQVCZPs1gCJoNgsr0aQZD0GwQVKZPMxiCZoOgMn2awRA0GwSV6dMMhqDZIKhMn2YwBM0GQWX6NIMhaDYIKtOnGQxBs0FQmT7NYAiaDYLK9GkGQ9BsEFSmTzMYgmaDoDJ9msEQNBsElenTDIag2SCoTJ9mMATNBkFl+jSDIWg2CCrTpxkMQbNBUJk+zWAImg2CyvRpBkPQbBBUpk8zGIJmg6AyfZrBEDQbBJXp0wyGoNkgqEyfZjAEzQZBZfo0gyFoNggq06cZDEGzQVCZPs1gCJoNgsr0aQZD0GwQVKZPMxiCZoOgMn2awRA0GwSV6dMMhqDZIKhMn2YwBM0GQWX6NIMhaDYIKtOnGQxBsxkp6O3edqdz/Xr96YeqpHGLEXQYCJrNSEFP17eDpKfPqpLGLUbQYSBoNqMEvfzpF9ud6zdHncuXR6mocYsRdBgIms0IQW/f/YfrPS9ffehcf77vfv/I0VhxzoKW2TEqzFnQeW++BiMEPd3yh/fzp5WgnsY/yTkLqtnl0YNaY7igruu87etBPY1bjKDDQNBshgt6uu7Z4hw0AwTNZuxlptu9LUbxdwVBs+E6qEyfZjAEzYZPkmT6NIMhaDYIKtOnGQxBs0FQmT7NYAiaDYLK9GkGQ9BsEFSmTzMYgmaDoDJ9msEQNBsElenTDIag2SCoTJ9mMATNBkFl+jSDIWg2CCrTpxkMQbNBUJk+zWAImg2CyvRpBkPQbBBUpk8zGIJmg6AyfZrBEDQbBJXp0wyGoNkgqEyfZjAEzQZBZfo0gyFoNggq06cZDEGzQVCZPs1gCJoNgsr0aQZD0GwQVKZPMxiCZoOgMn2awRA0GwSV6dMMhqDZIKhMn2YwBM0GQWX6NIMhaDYIKtOnGQxBs0FQmT7NYAiaDYLK9GkGQ9BsEFSmTzMYgmaDoDJ9msEQNBsElenTDIag2SCoTJ9mMATNBkFl+jSDIWg2CCrTpxkMQbNBUJk+zWAImg2CyvRpBkPQbBBUpk8zGIJmg6AyfZrBEDQbBJXp0wyGoNkgqEyfZjAEzQZBZfo0gyFoNggq06cZDEGzQVCZPs1gCJoNgsr0aQZD0GwQVKZPMxiCZoOgMn2awRA0GwSV6dMMtjiC3uysRB4qSKUJgsr0aQZbHEE9Fx/vZtpUAASV6dMMhqDZIKhMn2awhRTUH+3vH7pfV90Rf82Vfu1erPnfNlO1r+PrxgrV2logqEyfZrBFFPRmx52GHj84udpwuh3fP7xYfXDSOV7x/0XxYsH9w8YK1do5TvaBoDJ9msEWUdAzr6GT7y8nsehiNXSWm90etnrdWKFa++5GChBUpk8z2CIKehxH82tOVffj3m4o7f1Xf91Qobe2En2COvOvNkaeQTRuMYIOYyEFTcfnq417u6GDHCZoYwXNo3ugT9CDh/404njEpbDGLUbQYSyioGf34lj+zKt2NqIHbaxQra1GXVDXgfpz3LMRXWjjFiPoMBZR0JsdJ57zzKt2sTpK0KYK1dpafkpBrzbWEFSPRRQ0XCjyhh24H99sbA4/B22sUK2tRV3Qm5017/4Bh3gtFktQk/Sdg16srjzsHIw6zW3cYgQdBoJmw2UmmT7NYAiaDYLK9GkGQ9Bs5CHewyBJCwTNpn+QNPbLgI1bjKDDQNBsxGWmcdUbtxhBh4Gg2fT3oAi6tIL+bzNKmt2dvnPQUZfoI41bjKDDWCBBm/etLUGvNlbGDZIama2PA6juD13mLOg0TW3et7YEnYDGP8nZ+jiAZpdHD9oPgiqgaRSC9mNI0PhdUK6DImgdQ4JORuMWz9bHATSNQtB+bAnqetBx15kat3i2Pg6gaRSC9mNL0HR7CaZ8qIGg2Qwe4m92OAfVokWC+glyvS9iXjwa4kjfhz3xux1Sp5u3u6MiCKSgZysjD/ONWzxbHwfQNApB++kKGubE974qPKGgoZacRxcFnRR5iB8zKa9xi2fr4wCaRiFoP5WgV5/sJvvitF+vXnr1Nz/y924I/Zor+asfVVW6gvbq+h/3dp2gNzsP/tArPRt1WsmXRWT6NIO1RtCzbsd1sOZ/8dKlV6ubQd+qxIkaF3TqPWgs8oKfPfjj2133a6p//LBz9elhZ/hM4v5D/AE9KILW6QpaCeRtcj46vXqvqgW+xDmYFnSqc1CnVF/dm7ffWwvy+kp+tU9GHfLlOaiLyTmoGq0R9OJx6ri8Y+4Y7X70XnXCDND7oaRzsJkWpMphCnJVN0S52fnBZydB0I1wZxLv3PB5oA0X6g8YxWvRGkG756CNPag/N0wl/T2oN9YPr0QPunu8VtVPnA09cjdN+RhxY53GLZ6tjwNoGoWg/QyO4gfOQR/FIVOYKN90DhrmafTOQS8e/fbtbup5Y6mvO5mgrssdd9Onxi2erY8DaBqFoP0MXgcdGMWHXnIlDN9vdhpH8atrchTvlvwmRkh3iJhsFD8BjVs8Wx8H0DQKQfux+EnSSBq3eLY+DqBpFIL2g6AKaBqFoP0gqAKaRiFoP4YEDV9Y5pMkBO0DQRXQNGp5BbU/7TjdXXzRp3z89XxZWEGbN8eSoC35sshMdRwEQZVp3SBppjoOgqDK9At6PO4RIgg6BgRVpk/Q4/hx1EJ/Fj9THQdBUGUazkEX+yEKM9VxEARVBkF1QVBlOMTrgqDKMEjSpaWC9r7ZORnpy3npi/cV/iv0Qw7PQ6eJcplJlxYLOsH9jStqk5Rr5sXndzd/NRlBZ0R7BY1+xgnGF4//NcwzThOG06zj7vTh7gSRi0ffbqzc//vNOKcpSBhmyoUvKve+8ByrHTZOP0ZQXVor6G+Dn2mCsf+S/NmDkzRhOBX2pg93J3DEQ/yZq7zWSU8Bjeb6Kn1TRvrWR9BytFXQj7+3Upt5nKyqTRjumz7cnaSczPvs5NfpCcpxFmc4nNcm0qVqjdOPEVSXtgq6upau7nQnGId/acJwnFXUnT5cn6TsTw7efvNZ765OH6fZx7Vpy2ks1Tj9GEF1aaugad5mmmBcCdoJh/NUmH7r9J2DhqrH/xDcjh1rnDjf0IP21h8jKBfqM2ixoH4AnkRNVqUJw6mwNn24GsVXLsfneIdRvHMyzj4+jOegXubj0Cc3Tz+mB9WlzYL6QU6cYFz1oGnCcJp1XJs+3LsO6u/mefMv6fY4G/FZ8vVRvF/5B5+Gao3TjxFUl5YKmsfF9+++LoLqgqCDHA+/89J4+KhTFwRVhi+L6IKgyvB1O10QVBkE1WVhBbU/7bjDIR5BjQvKIGl5BW2OYE3QsSAogs4WBEXQQHMEQ4JWjzrm1jcI2sOQoF0OFvse9Qjao42CXm2M/FwKQRF0tghBz8Y8yQtBEXS2yCfNjZlYiqDLKah/4OGIqZeTPLo4PuNITAwV85IbqAt6szPyKXMeBF1WQcPszSxBw5zOwTt8Ti5obMRoEHRJBX30nw9rzy0O34n/eLf7BXjx8OM0fziWHNQnHYeXody/uHn7dexBRzzvuH6H5QnuG4Ggyyro4cFm7QnFx+5/d7g9XusuTgvCw4/T/OFYUk06TjORPtmN5eFxXo//MGLCsRCU66AIOkhN0KvPTnpPKHb936+/ehgfGdupP7o49KVx/nD1MOM06bj7oM5U7h1fGzXhWAg6GQi6tIJGndITiq8+/fbT3zz6tnoabG9B0DDOH04l1aTjbg9a1Xz8x+5Tk0c87xhBEXRCQcMZY/WE4oMff//m7Ve1GzSkBdWQJ913xJMmHcclvXIX7nE17bMz/HnHCIqgEwoaR9HpUcZnK/EsNB7Jz/oeg1zNH05V06Tj3ig+lR+vrFX3xhnxvGMERdBJBY2Pfo9PKA5j+DhYOavPJQ4VD1Z6zzZ2XWWcdNy7DloLkXrQEc87RlAEnUDQHHImHSMogiaaIygImjXpGEERNNEcwdpn8WNBUASdLQiKoIHmCAiKoAWZRtDFmNU5FgRtq6BWGSHo5fP19e1O5/r1+tMPVRmCIuhsGS7o9ef7ncsX+7d7253TZ1UhgiLobBku6Lm38v329ZujzuXLo1SIoAg6W0afg7pe9PLVh9CZdjofORprzVnQ/sbMWdD+xsxZ0LtrYYeRgt7ubXXOn1aCeuhBx0APqswoQa9fb7mh0isERdD5MXIU78bwHc5BEXSeDBc0+hkO84ziEXReDBf0dN2zzXVQBJ0nfJKEoKZBUAQ1DYIiqGkQFEFNg6AIahoERVDTICiCmgZBEdQ0CIqgpkFQBDUNgiKoaRAUQU2DoAhqGgRFUNMgKIKaBkER1DQIiqCmQVAENQ2CIqhpEBRBTYOgCGoaBEVQ0yAogpoGQRHUNAiKoKZBUAQ1DYIiqGkQFEFNg6AIahoERVDTICiCmgZBEdQ0CIqgpkFQBDUNgiKoaRAUQU2DoAhqGgRFUNMgKIKaBkER1DQIiqCmQVAENQ2CIqhpEBRBTYOgCGoaBEVQ0yAogpoGQRHUNAiKoKZBUAQ1DYIiqGkQFEFNg6AIahoERVDTICiCmgZBEdQ0CIqgpkFQBDUNgiKoaRAUQU2DoAhqGgRFUNMgKIKaBkER1DQIiqCmQVAENc2UgjYyZ0H7GzNnQfsbM2dBFXI7d+hBdaEHVQZBEdQ0CIqgpkFQBDUNgiKoaRAUQU2DoAhqGgRFUNMgKIKaBkER1DQIiqCmQVAENQ2CIqhpEBRBTYOgCGoaBEVQ0yAogpoGQRHUNAiKoKZBUAQ1DYIiqGkQFEFNg6AIahoERVDTICiCmgZBEdQ0CIqgpkFQBDUNgiKoaRAUQU2DoAhqGgRFUNMgKIKaBkER1DQIiqCmQVAENQ2CIqhpEBRBTYOgCGoaBEVQ0yAogpoGQRHUNAiKoKZBUAQ1DYIiqGkQFEFNg6AIahoERVDTICiCmgZBEdQ0CIqgpkFQBDUNgiKoaRAUQU2DoAhqGgRFUNMgKIKaBkER1DQIiqCmQVAENQ2CIqhpEBRBTYOgCGoaBEVQ0yAogpoGQRHUNAiKoKZBUAQ1DYIiqGnGC3r9ev3ph+oXBEXQ2TJW0Nu97c7ps+o3BEXQ2TJW0Os3R53Ll0fpNwRF0NkyVtDLVx8615/vu1cfOWbQIoAaYwU9f1oJ6mn+m8ykTNQ70v7GFDZKmSl6UE+JHbYETtwVBFU5B83eY0Wi3pH2N6awUcpMMIrfGjeKz95jRaLekfY3pqxQ2mhcB83eY0Wi3pH2N6aoT+pofJKUvceKRL0j7W9MGZFKgaCC9jemjEilQFBB+xtTRqRSIKig/Y0pI1IpEFTQ/saUEakUCCpof2PKiFQKBBW0vzFlRCoFggra35gyIpUCQQXtb0wZkUqBoIL2N6aMSKVAUEH7G1NGpFIgqKD9jSkjUikQVND+xpQRqRRTCloEUxNJaIwtEFRAY2yBoAIaYwsEFdAYW1gQFGAoCAqmQVAwDYKCaRAUTFNC0PP19dpM5d5dHwT+vnldLp+7ldafiKq37/ZHRRhNWO1279n4mpHUbLda/Q2vXw82q/4GU7Tn+faolSaJFvfStijsb3DLKCDoqc/n+66hEwoaap32vI5V3u137owP2fceo6k1u9bk69fbg82qvcE07Xnu3yFPUF8nNCmrJYuEvqDxRk7eDNf5PIn3zUmvfvrFkyPfCWyHjulvv6iqdKpd3Kvrf/xw3wl6u/f0T73S86Hd2SAuWPQzvuXlq38P75xCpHZ0A3abffnyO/de/7gd7kqVlHDLQntqmxSrHU3RoMuX//Wstom+bZcv9sPd2ao9UNtPKXAseV9vTbxdli/3L27f/TL2oNPsmgVCX9Dzbnfzfsv/4ndeeuWOcT7XVYkTJC7o1HvQWOTTd/70z+/23a+p/umzcKOo00mP2Zcv/zv4md7y8nkInEKkwl7AbrPjEfPcVd7qeGNjeWzPh94mxWrTNMhV96J1N+bU/e92welWd3FaEPZTChxLqtbEveTbHsr9Aeby1Z+mbskiUUDQai/5Xeb2Zdp58VW1wJe4nKcFnersyt/qsV739t1PtkJaQh/25qh3m70JuHzxk/VaW5JVtRB9AbvNTuZ9+eF3cZHrmX64X6nRa1yqNkWDYtTexrj+73e/eNY9i6kteFntlU613ak11V7ZT+Xe8a3pW7JI6AsajkXhhT8HfLefzuHjK1f83h+Kwsv322lBqnzuROiuFaLc7v38yzBs8UOV4Mlz//+EDXm+df06dE/dtwz/UohQ2AtYb7Y/OXj3qy9747wXqT21DUmbNUWDfPWgU9qY6zffvfn9y+/eHHUXpwVh58TAqaRqTbcHrWq++nN3B0+zaxaIguegjT2oP8NPJf09qN/1fpwietD9062qfuK8ecQySMjai/3qLStBY4hU2AtYOwcNVU//KbgdO9b4p9TQg07ToGj3L3sb8/6ff3b77he1njstqI406YTEk1oTl/TKXbhXH6ZvySJRchQ/cA5a9WEv9pvPQcM1od45qDuJfLefOqxY6utOJag/q01vmd49hUiFtYBVsyuXX8RjrB8yOydje45iM7zMp6FPnqZBqWN8Um2M2wHxLDT+dZz37bEqcKqaWtMbxafy0/Wt6qR5ml2zQJS8Djowig/GrIfh++1e4yjeDWTEKN4t+X2M4A9g76cbxcdBTnzL6s8jhUjtqAXsXQe93XOD7H9LJ8yvw7lF3yjer/zzN6HaFA1K48An3Y0JY/i49nn9TeL5z3pvN7jNiK257F4HrYVIf1HT7JoFgk+ShnD5s3m3oI6t1swSBG3m1NSAw1ZrZgqCgmkQFEyDoGAaBAXTLImgNzsrkYdjq15thDpn9w+LtwrGsySCei4+3p2k2tXGymYHQa2AoJKrjR8/PkFQKyyfoP5o7+W7WHVH/DVX+rV7seZ/2wzVrjY2D9aioI1VqvVhJiydoDc77hTz+MGJ89D9vH94sfrgpHO84v+L2rkFF48OvaCNVar157wxS8PSCRoO3U69v5zEoovVTd+bbnZ7WK/l8Zqv11ilWn+um7JELJ2gx3E07w/i7se93VDa+y/Kd/VJFLGhSm99mAXLJ2g6Ol9t3NsN3WOToJ3jh+EQ31CFo/tsWTpBz+7FsfyZF+1sSA/auXn71f3DxirV+jAblk7Qmx2nnbPMi3axOkxQd3B3gjZVqdaf77YsD0snaLhM5P06cD++cSP2ZkE7B+4ctLFKtT7MhCUSFBYRBAXTICiYBkHBNAgKpkFQMA2CgmkQFEyDoGAaBAXT/D/B6DC+SH+oZAAAAABJRU5ErkJggg==" /><!-- --></p>
+
+</body>
+</html>
