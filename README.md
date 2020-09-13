@@ -20,13 +20,9 @@ Yumin Wu
 ``` r
 library(rmarkdown)
 library(httr)
-#> Warning: package 'httr' was built under R version 3.6.3
 library(jsonlite)
-#> Warning: package 'jsonlite' was built under R version 3.6.3
 library(dplyr)
-#> Warning: package 'dplyr' was built under R version 3.6.3
 library(knitr)
-#> Warning: package 'knitr' was built under R version 3.6.3
 ```
 
 # Introduction
@@ -259,13 +255,12 @@ New Jersey Devils summary of ties
 
 ``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 3.6.3
 g <- ggplot(analysis, aes(x = teamName, y =wins.x))
 g <- g + geom_boxplot(stat = "boxplot", position = "dodge")+geom_jitter(aes(colour = teamName))+coord_cartesian(ylim = c(0,100))+labs(title="Boxplot for wins")
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 ``` r
 g <- ggplot(analysis, aes(x = losses))
@@ -273,7 +268,7 @@ g <- g + geom_histogram(aes(y = ..density..),bins=20)+ geom_density(adjust = 0.4
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 ``` r
 g <- ggplot(analysis, aes(x=wins.x, y=losses))
@@ -281,7 +276,7 @@ g <- g + geom_point(aes(color = teamName))+labs(title="wins vs losses")+geom_smo
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ``` r
 g <- ggplot(data = analysis, aes(x = teamName,fill=teamName))
@@ -289,4 +284,4 @@ g <- g + geom_bar()+labs(x='Team Name',y='No. of wins') +scale_fill_discrete(nam
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
