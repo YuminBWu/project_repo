@@ -23,6 +23,7 @@ library(httr)
 library(jsonlite)
 library(dplyr)
 library(knitr)
+library(ggplot2)
 ```
 
 # Introduction
@@ -253,6 +254,9 @@ New Jersey Devils summary of ties
 
 ## Visuals
 
+Through this boxplot, I can see that the mean of the number of wins for
+these three teams are almost the same.The mean is about 7.
+
 ``` r
 library(ggplot2)
 g <- ggplot(analysis, aes(x = teamName, y =wins.x))
@@ -260,7 +264,11 @@ g <- g + geom_boxplot(stat = "boxplot", position = "dodge")+geom_jitter(aes(colo
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+
+Through this hisogram, we can see that the density of the probability of
+losses is right-skewed. When the number of losses is greater than about
+400, the probability is nearly to 0.
 
 ``` r
 g <- ggplot(analysis, aes(x = losses))
@@ -268,7 +276,10 @@ g <- g + geom_histogram(aes(y = ..density..),bins=20)+ geom_density(adjust = 0.4
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
+
+According to this scatterplot, we can see that a linear model is
+plausible for the number of wins and losses.
 
 ``` r
 g <- ggplot(analysis, aes(x=wins.x, y=losses))
@@ -276,7 +287,11 @@ g <- g + geom_point(aes(color = teamName))+labs(title="wins vs losses")+geom_smo
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+
+Through the bar chart, we see that the number of wins of Colorado and
+Rockies and New Jersey Devils are almost the same. They won 55 times,
+and Kansas City Scouts won around 28 times.
 
 ``` r
 g <- ggplot(data = analysis, aes(x = teamName,fill=teamName))
@@ -284,4 +299,4 @@ g <- g + geom_bar()+labs(x='Team Name',y='No. of wins') +scale_fill_discrete(nam
 g
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->

@@ -24,6 +24,7 @@ library(httr)
 library(jsonlite)
 library(dplyr)
 library(knitr)
+library(ggplot2)
 ```
 
 # Introduction  
@@ -219,6 +220,8 @@ kable(st,caption = 'New Jersey Devils summary of ties')
 
 ## Visuals  
 
+Through this boxplot, I can see that the mean of the number of wins for these three teams are almost the same.The mean is about 7.  
+
 ```{r}
 library(ggplot2)
 g <- ggplot(analysis, aes(x = teamName, y =wins.x))
@@ -226,6 +229,7 @@ g <- g + geom_boxplot(stat = "boxplot", position = "dodge")+geom_jitter(aes(colo
 g
 ```
 
+Through this hisogram, we can see that the density of the probability of losses is right-skewed. When the number of losses is greater than about 400, the probability is nearly to 0.
 
 ```{r}
 g <- ggplot(analysis, aes(x = losses))
@@ -233,13 +237,17 @@ g <- g + geom_histogram(aes(y = ..density..),bins=20)+ geom_density(adjust = 0.4
 g
 ```
 
-
+According to this scatterplot, we can see that a linear model is plausible for the number of wins and losses.  
 
 ```{r}
 g <- ggplot(analysis, aes(x=wins.x, y=losses))
 g <- g + geom_point(aes(color = teamName))+labs(title="wins vs losses")+geom_smooth(aes(group = teamName),method = lm,col="green")+scale_x_continuous(name = "wins", limits = c(0, 700)) + theme_classic()
 g
 ```
+
+
+Through the bar chart, we see that the number of wins of Colorado and Rockies and New Jersey Devils are almost the same. They won 55 times, and Kansas City Scouts won around 28 times.
+
 
 ```{r}
 g <- ggplot(data = analysis, aes(x = teamName,fill=teamName))
