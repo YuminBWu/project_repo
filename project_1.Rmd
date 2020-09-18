@@ -127,9 +127,25 @@ get_skater<-function(franchiseId=NULL,franchiseName=NULL)
 
 
 ```{r}
-get_teams <- function(franchiseId=NULL,name=NULL)
+## Users can use the argument modifiers (an integer between 1 to 8) to select one of the eight modifiers
+get_teams <- function(franchiseId=NULL,name=NULL,modifiers=NULL,season=c(),teamid=c())
 {
-  get_teams<-GET("https://statsapi.web.nhl.com/api/v1/teams")
+  url = "https://statsapi.web.nhl.com/api/v1/teams"
+  expand = ''
+  if(!is.null(modifiers))
+  {
+    expand = switch(modifiers,
+      '1'='?expand=team.roster',
+      '2'='?expand=person.names',
+      '3'='?expand=team.schedule.next',
+      '4'='?expand=team.schedule.previous',
+      '5'='?expand=team.stats',
+      '6'=paste0('?expand=team.roster&season=',season),
+      '7'=paste0('?teamId=',paste(teamid,collapse=',')),
+      '8'='?stats=statsSingleSeasonPlayoffs')
+  }
+  
+  get_teams<-GET(paste0(url,expand))
   txt_teams<-content(get_teams, "text")
   json_teams<-fromJSON(txt_teams, flatten = TRUE)
 
@@ -147,13 +163,109 @@ get_teams <- function(franchiseId=NULL,name=NULL)
 
 ## Create a function for users to access any of the API endpoints above.  
 ```{r}
-#nhl<-function(full_url){
-#get<-GET(full_url)
-#txt_resp<-content(get, "text")
-#json_resp<-fromJSON(txt_resp, flatten = TRUE)
-#json_resp
+## Users can use the argument endpoint (an integer between 1 to 6) to select one of the six endpoints
+get_info <- function(endpoint,franchiseId=NULL,name=NULL,teamName=NULL,franchiseName=NULL,modifiers=NULL,season=c(),teamid=c())
+{
+  
+  urls = c("https://records.nhl.com/site/api/franchise",
+    "https://records.nhl.com/site/api/franchise-team-totals",
+    "https://records.nhl.com/site/api/franchise-season-records",
+    "https://records.nhl.com/site/api/franchise-goalie-records",
+    "https://records.nhl.com/site/api/franchise-skater-records",
+    "https://statsapi.web.nhl.com/api/v1/teams")
+  if(endpoint<1|endpoint>6)
+  {stop('Endpoint should be between 1 and 6.')}
+  url = urls[endpoint]
+  
+  expand = ''
+  if((endpoint==6)&(!is.null(modifiers)))
+  {
+    expand = switch(modifiers,
+      '1'='?expand=team.roster',
+      '2'='?expand=person.names',
+      '3'='?expand=team.schedule.next',
+      '4'='?expand=team.schedule.previous',
+      '5'='?expand=team.stats',
+      '6'=paste0('?expand=team.roster&season=',season),
+      '7'=paste0('?teamId=',paste(teamid,collapse=',')),
+      '8'='?stats=statsSingleSeasonPlayoffs')
+  }
+  
+  get_data<-GET(paste0(url,expand))
+  txt_data<-content(get_data, "text")
+  json_data<-fromJSON(txt_data, flatten = TRUE)
+  
+  if(endpoint==1)
+  {
+    franchise<-json_data$data%>%select("id","firstSeasonId","lastSeasonId","teamCommonName")
+    if(is.null(franchiseId)&(is.null(name)))
+    {
+      return(franchise)
+    }else{
+      return(franchise[which((franchise$id %in% franchiseId)|(franchise$teamCommonName %in% name)),])
+    }
+  }
 
+   if(endpoint==2)
+   {
+      franchise_team_total<-json_data$data%>%select("franchiseId","homeTies","homeWins","roadTies","roadWins","shootoutLosses",
+      "shootoutWins","shutouts","teamId","teamName","ties","wins")
+    
+       if(is.null(franchiseId)&(is.null(teamName)))
+      {
+        return(franchise_team_total)
+      }else{
+          return(franchise_team_total[which((franchise_team_total$franchiseId %in% franchiseId)|(franchise_team_total$teamName %in%teamName)),])
+      }
+   }
+  
+    if(endpoint==3)
+    {
+       if(is.null(franchiseId)&(is.null(franchiseName)))
+        {
+         return(json_data$data)
+        }else{
+         return(json_data$data[which((json_data$data$franchiseId %in% franchiseId)|(json_data$data$franchiseName %in% franchiseName)),] )
+        }
 
+    }
+  
+    if(endpoint==4)
+    {
+       if(is.null(franchiseId)&(is.null(franchiseName)))
+      {
+       return(json_data$data)
+      }else{
+       return(json_data$data[which((json_data$data$franchiseId %in% franchiseId)|(json_data$data$franchiseName %in% franchiseName)),] )
+      }
+    }
+  
+    if(endpoint==5)
+    {
+      if(is.null(franchiseId)&(is.null(franchiseName)))
+      {
+        return(json_data$data) 
+        
+      }else{
+         return(json_data$data[which((json_data$data$franchiseId %in% franchiseId)|(json_data$data$franchiseName %in% franchiseName)),] )
+       
+      }
+    }
+  
+    if(endpoint==6)
+    {
+      if(is.null(franchiseId)&(is.null(name)))
+      {
+        return(json_data$teams)
+      }else{
+          return(json_data$teams[which((json_data$teams$franchiseId %in% franchiseId)|(json_data$teams$name %in% name)),])
+      }
+
+    }
+  
+}
+
+ 
 ```
 
 
